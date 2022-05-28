@@ -23,6 +23,8 @@ jobs:
     - run: npm i gitfolio -g
     - run: gitfolio build gggxbbb -f --theme dark --sort updated --order desc --background https://static.evax.top/img/bg.jpeg
     
+    - run: echo "gxb.pub" > dist/CNAME
+    
     - name: Push to gh-pages
       uses: crazy-max/ghaction-github-pages@v2
       with:
