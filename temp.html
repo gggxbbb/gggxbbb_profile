@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="static/gggxbbb.jpg">
+  <link rel="stylesheet" href="css/pico/css/pico.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>gggxbbb</title>
+</head>
+
+<body>
+  <main class="container">
+
+    <div id="head">
+      <img src="static/gggxbbb.jpg" alt="gggxbbb" id="avatar" class="head_content">
+      <div class="head_content">
+        <hgroup>
+          <h1>gggxbbb</h1>
+          <h2>A Student.</h2>
+        </hgroup>
+        <div>
+          <a href="//github.com/gggxbbb">Github</a> |
+          <a href="//evax.top">Blog</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap"></div>
+
+    <div id="repo">
+      <h2>Latest Repos</h2>
+
+      <div class="table_grid">
+        {% for repo in repos %}
+        <div class="repo">
+          <article>
+            <header>
+              <a href="{{ repo.url }}">{{ repo.name }}</a>
+            </header>
+            <p>{{ repo.description }}</p>
+            <footer>
+              <p>
+                📑<span>{{ repo.language }}</span> |
+                ❤️<span>{{ repo.stars }}</span> |
+                🍴<span>{{ repo.forks }}</span>
+              </p>
+            </footer>
+          </article>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </main>
+</body>
+
+</html>
