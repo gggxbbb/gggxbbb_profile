@@ -13,11 +13,11 @@ for repo in repos:
         'language': repo['language'] or "未知语言",
         'stars': repo['stargazers_count'],
         'forks': repo['forks_count'],
-        'updated': repo['updated_at']
+        'updated': repo['updated_at'],
     })
 
 own_repos = sorted(own_repos, key=lambda k: k['updated'], reverse=True)
-own_repos = own_repos[:6]
+own_repos = own_repos[:3]
 
 temp = Template(open('temp.html', encoding='utf-8').read())
 opt = temp.render(repos=own_repos)
