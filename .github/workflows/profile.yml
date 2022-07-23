@@ -3,8 +3,6 @@ name: Profile
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   schedule:
     - cron: '0 0-23/3 * * *'
 
@@ -15,14 +13,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js
-      uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        clean: false
+        submodules: "recursive"
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
 
-    - run: npm i gitfolio -g
-    - run: gitfolio build gggxbbb -f --theme dark --sort updated --order desc --background https://static.evax.top/img/bg.jpeg
-    
+    - run: sh build.sh
+
     - run: echo "gxb.pub" > dist/CNAME
     
     - name: Push to gh-pages
